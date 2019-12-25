@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Robot_ecraseur_namespace" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Robot_ecraseur_namespace" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Robot_ecraseur_namespace" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="JoueurFacile.h" />
+		<Unit filename="afficherJeu.h" />
+		<Unit filename="entite.cpp" />
+		<Unit filename="entite.h" />
+		<Unit filename="jeu.cpp" />
+		<Unit filename="jeu.h" />
+		<Unit filename="joueur.cpp" />
+		<Unit filename="joueur.h" />
+		<Unit filename="joueurDifficile.cpp" />
+		<Unit filename="joueurDifficile.h" />
+		<Unit filename="joueurFacile.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="namespaceDeplacement.cpp" />
+		<Unit filename="namespaceDeplacement.h" />
+		<Unit filename="nouveauRobot.cpp" />
+		<Unit filename="nouveauRobot.h" />
+		<Unit filename="obstacle.cpp" />
+		<Unit filename="obstacle.h" />
+		<Unit filename="personnage.cpp" />
+		<Unit filename="personnage.h" />
+		<Unit filename="position.cpp" />
+		<Unit filename="position.h" />
+		<Unit filename="robot.cpp" />
+		<Unit filename="robot.h" />
+		<Unit filename="vieuxRobot.cpp" />
+		<Unit filename="vieuxRobot.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
