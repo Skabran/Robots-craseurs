@@ -1,23 +1,18 @@
-#ifndef POSITION_H
-#define POSITION_H
-#include <iostream>
+#ifndef POSITION_H_INCLUDED
+#define POSITION_H_INCLUDED
 
-class position
-{
+class position{
 public:
-    position(double x, double y);
-    position(); // par default (0,0)
-    double valeurX() const;
-    double valeurY() const;
-    void changePosition(double x, double y);
-    void affiche(std::ostream& ost) const;
-    void lit(std::istream& ist);
+    position(int x, int y);
+    int x()const;
+    int y()const;
+    void deplaceX(int i);
+    void deplaceY(int i);
 
 private:
-    double d_x;
-    double d_y;
-};
-std::ostream& operator<<(std::ostream& ost, const position& pos);
-std::istream& operator>>(std::istream& ist, position& pos);
+    int d_x;
+    int d_y;
 
-#endif // POSITION_H
+};
+
+#endif // POSITION_H_INCLUDED

@@ -1,9 +1,9 @@
 #include "joueur.h"
-#include <string>
 
-joueur::joueur(position& pos): personnage{pos} {}
+joueur::joueur(const position &pos):Personnage{pos}
+{}
 
-joueur::~joueur(){}
-
-
-
+char joueur::signe()const
+{
+    return 'J';
+}

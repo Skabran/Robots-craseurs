@@ -1,14 +1,17 @@
-#ifndef JOUEUR_H
-#define JOUEUR_H
-#include "personnage.h"
-#include <string>
+#ifndef JOUEUR_H_INCLUDED
+#define JOUEUR_H_INCLUDED
+#include "Personnage.h"
+#include <iostream>
+class joueur: public Personnage{
 
-class joueur:public personnage
-{
-public:
-    joueur(position& pos);
-    virtual ~joueur();
-    std::string getNom() const;
-    virtual void deplacePerso() override =0;
+public :
+
+    joueur(const position &pos);
+    virtual char signe()const override;
+
+private :
+
 };
-#endif // JOUEUR_H
+
+
+#endif // JOUEUR_H_INCLUDED

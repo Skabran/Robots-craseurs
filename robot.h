@@ -1,14 +1,17 @@
-#ifndef ROBOT_H
-#define ROBOT_H
-#include "personnage.h"
-#include<string>
+#ifndef ROBOT_H_INCLUDED
+#define ROBOT_H_INCLUDED
+#include "Personnage.h"
+#include "joueur.h"
+class robot : public Personnage{
 
-class robot:public personnage
-{
-public:
-    robot(position& pos);
+public :
     virtual ~robot();
-    std::string getNom() const;
-    virtual void deplacePerso() override =0;
+    virtual void deplace(const joueur &j)=0;
+    void ecrase();
+private :
+
+
 };
-#endif // ROBOT_H
+
+
+#endif // ROBOT_H_INCLUDED

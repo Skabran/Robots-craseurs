@@ -1,43 +1,26 @@
 #include "position.h"
-#include <iostream>
 
-position::position(): d_x{0.0}, d_y{0.0} {}
+position::position(int x, int y):d_x{x},d_y{y}
+{
 
-position::position(double x, double y): d_x{x}, d_y{y} {}
+}
 
-double position::valeurX() const
+int position::x()const
 {
     return d_x;
 }
 
-double position::valeurY() const
+int position::y()const
 {
     return d_y;
 }
 
-void position::affiche(std::ostream& ost) const
+void position::deplaceX(int i)
 {
-    ost<<"("<<d_x<<","<<d_y<<")";
+    d_x+=i;
 }
 
-void position::lit(std::istream& ist)
+void position::deplaceY(int i)
 {
-    char temp;
-    ist>>temp>>d_x>>temp>>d_y>>temp;
-}
-
-void position::changePosition(double x, double y)
-{
-    d_x=x;
-    d_y=y;
-}
-
-std::ostream& operator<<(std::ostream& ost, const position& pos)
-{
-    pos.affiche(ost);
-}
-
-std::istream& operator>>(std::istream& ist, position& pos)
-{
-    pos.lit(ist);
+    d_y+=i;
 }
