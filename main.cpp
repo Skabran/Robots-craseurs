@@ -2,6 +2,6 @@
 
 int main()
 {
-    std::cout << "It's dangerous to go alone... please send help !" << std::endl;
+    std::cout << "Bonjour a tous" << std::endl;
     return 0;
 }

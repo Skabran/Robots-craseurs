@@ -12,6 +12,8 @@ public:
     void changePosition(double x, double y);
     void affiche(std::ostream& ost) const;
     void lit(std::istream& ist);
+    bool operator==(const position& pos) const;
+
 
 private:
     double d_x;

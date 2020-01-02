@@ -36,6 +36,7 @@
 		<Unit filename="afficherJeu.h" />
 		<Unit filename="entite.cpp" />
 		<Unit filename="entite.h" />
+		<Unit filename="graphics.h" />
 		<Unit filename="jeu.cpp" />
 		<Unit filename="jeu.h" />
 		<Unit filename="joueur.cpp" />
@@ -58,6 +59,7 @@
 		<Unit filename="robot.h" />
 		<Unit filename="vieuxRobot.cpp" />
 		<Unit filename="vieuxRobot.h" />
+		<Unit filename="winbgi.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

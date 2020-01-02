@@ -32,6 +32,15 @@ void position::changePosition(double x, double y)
     d_y=y;
 }
 
+bool position::operator==(const position& pos) const
+{
+    if(d_x==pos.valeurX() && d_y==pos.valeurY())  //problème car égalité de double ?
+    {
+        return true;
+    }
+    return false;
+}
+
 std::ostream& operator<<(std::ostream& ost, const position& pos)
 {
     pos.affiche(ost);
