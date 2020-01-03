@@ -51,8 +51,6 @@
 		<Unit filename="nouveauRobot.h" />
 		<Unit filename="obstacle.cpp" />
 		<Unit filename="obstacle.h" />
-		<Unit filename="personnage.cpp" />
-		<Unit filename="personnage.h" />
 		<Unit filename="position.cpp" />
 		<Unit filename="position.h" />
 		<Unit filename="robot.cpp" />

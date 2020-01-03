@@ -14,5 +14,5 @@ void joueurDifficile::deplacePerso()
 {
     char c;
     std::cin>>c;
-    deplacement::deplacementCroix(d_pos);
+    deplacement::deplacementCroix(d_pos, c);
 }

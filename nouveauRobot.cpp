@@ -2,6 +2,7 @@
 #include<string>
 #include "namespaceDeplacement.h"
 #include "position.h"
+#include "joueur.h"
 
 nouveauRobot::nouveauRobot(position& pos, joueur& joueur1): robot{pos,joueur1}
 {

@@ -11,9 +11,9 @@ public:
     robot(position& pos, joueur& joueur1);
     virtual ~robot();
     std::string getNom() const;
-    virtual void deplacePerso(const joueur& joueur1) override =0;
-    virtual char deplacementAutomatique(const joueur& joueur1) const =0;
-private:
+    virtual void deplacePerso() override =0;
+    virtual char deplacementAutomatique() const =0;
+protected:
     joueur* d_joueur;
 };
 #endif // ROBOT_H

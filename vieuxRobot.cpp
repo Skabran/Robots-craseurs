@@ -17,66 +17,70 @@ void vieuxRobot::deplacePerso()
 
 char vieuxRobot::deplacementAutomatique() const
 {
-//    if(x()>j.x())
-//    {
-//        if(y()>j.y())
-//        {
-//            if((x()-j.x())<(y()-j.y()))
-//            {
-//                deplaceHaut();
-//            }
-//            else
-//            {
-//                deplaceGauche();
-//            }
-//        }
-//        else
-//        {
-//            if((x()-j.x())<(j.y()-y()))
-//            {
-//                deplaceBas();
-//            }
-//            else
-//            {
-//                deplaceGauche();
-//            }
-//        }
-//    }
-//    else if (x()<j.x())
-//    {
-//        if(y()>j.y())
-//        {
-//            if((j.x()-x())<(y()-j.y()))
-//            {
-//                deplaceHaut();
-//            }
-//            else
-//            {
-//                deplaceDroite();
-//            }
-//        }
-//        else
-//        {
-//            if((j.x()-x())<(j.y()-y()))
-//            {
-//                deplaceBas();
-//            }
-//            else
-//            {
-//                deplaceDroite();
-//            }
-//        }
-//    }
-//    else{
-//        if(y()>j.y())
-//        {
-//            deplaceHaut();
-//        }
-//        else if(y()<j.y())
-//        {
-//            deplaceBas();
-//        }
-//        else
-//            return;
-//    }
+    position positionJoueur=d_joueur->getPosition();
+    double robotX=d_pos.valeurX();
+    double robotY=d_pos.valeurY();
+    double joueurX=positionJoueur.valeurX();
+    double joueurY=positionJoueur.valeurY();
+
+    if(d_pos.aGauche(positionJoueur))
+    {
+        if(d_pos.enDessous(positionJoueur))
+        {
+            if((robotX-joueurX)<(robotY-joueurY))
+            {
+                return deplacement::HAUT;
+            }
+            else
+            {
+                return deplacement::GAUCHE;
+            }
+        }
+        else
+        {
+            if((robotX-joueurX)<(joueurY-robotY))
+            {
+                return deplacement::BAS;
+            }
+            else
+            {
+                return deplacement::GAUCHE;
+            }
+        }
+    }
+    else if (robotX<joueurX)
+    {
+        if(robotY>joueurY)
+        {
+            if((joueurX-robotX)<(robotY-joueurY))
+            {
+                return deplacement::HAUT;
+            }
+            else
+            {
+                return deplacement::DROITE;
+            }
+        }
+        else
+        {
+            if((joueurX-robotX)<(joueurY-robotY))
+            {
+                return deplacement::BAS;
+            }
+            else
+            {
+                return deplacement::DROITE;
+            }
+        }
+    }
+    else{
+        if(robotY>joueurY)
+        {
+            return deplacement::BAS;
+        }
+        else if(robotY<joueurY)
+        {
+            return deplacement::BAS;
+        }
+    }
 }
