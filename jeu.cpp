@@ -7,12 +7,16 @@
 #include "joueurDifficile.h"
 
 jeu::jeu():
-    d_nbVieuxRobots{3}, d_nbNouveauxRobots{1},d_tailleTerrain{200},
-    d_typePartie{'F'},d_vectEntite{} {}
+d_nbVieuxRobots{3}, d_nbNouveauxRobots{1},d_tailleTerrain{200},
+d_typePartie{'F'},d_vectEntite{} {},d_score{0}
+{
+    joueurFacile *j1=new joueurFacile{position p{d_tailleTerrain/2, d_tailleTerrain/2}};
+    d_vectEntite.push_back(j1);
+}
 
 jeu::jeu(int nbVieuxRobots, int nbNouveauxRobots, int tailleTerrain, char typePartie):
 d_nbVieuxRobots{nbVieuxRobots}, d_nbNouveauxRobots{nbNouveauxRobots},d_tailleTerrain{tailleTerrain}, d_typePartie{typePartie},
-d_vectEntite{}
+d_vectEntite{},d_score{0}
 {
     if(d_typePartie=='D')
     {
@@ -22,7 +26,7 @@ d_vectEntite{}
     else
     {
         joueurFacile *j1=new joueurFacile{position p{d_tailleTerrain/2, d_tailleTerrain/2}};
-        d_vectEntite.push_back(j1)
+        d_vectEntite.push_back(j1);
     }
 }
 
@@ -76,10 +80,12 @@ void jeu::collision()
                     }
                     else
                         supprimerEntite(d_vectEntite[j]);
+                        d_score+=NBPOINTMECHANT;
                 }
             }
             creerDebris(d_vectEntite[i]->getPosition());
             supprimerEntite(d_vectEntite[i]);
+            d_score+=NBPOINTMECHANT;
         }
     }
 }

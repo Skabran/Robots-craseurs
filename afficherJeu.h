@@ -5,10 +5,11 @@
 class afficherJeu
 {
     afficherJeu();
-    void afficheMenu();
+    afficherJeu(jeu& leJeu);
+    void afficheMenu() const;
 
 private:
-    jeu d_jeu;
+    jeu* d_poiteurJeu;
 };
 
 #endif // AFFICHERJEU_H

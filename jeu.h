@@ -4,8 +4,12 @@
 #include "entite.h"
 #include "position.h"
 
+const int NBPOINTMECHANT = 100;
+
 class jeu
 {
+    class friend afficherJeu;
+
 public:
     jeu();
     jeu(int nbVieuxRobots, int nbNouveauxRobots,int tailleTerrain, char typePartie)
@@ -23,5 +27,6 @@ private:
     int d_tailleTerrain;
     char d_typePartie;
     std::vector<entite *> d_vectEntite;
+    int d_score;
 };
 #endif // JEU_H
