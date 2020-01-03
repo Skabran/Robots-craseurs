@@ -1,6 +1,7 @@
 #include "jeu.h"
 #include<vector>
 #include<string>
+#include<ctime>
 #include "obstacle.h"
 #include "position.h"
 #include "joueurFacile.h"
@@ -8,7 +9,7 @@
 
 jeu::jeu():
 d_nbVieuxRobots{3}, d_nbNouveauxRobots{1},d_tailleTerrain{200},
-d_typePartie{'F'},d_vectEntite{} {},d_score{0}
+d_typePartie{'F'},d_vectEntite{} {},d_score{0},d_jeuTermine{false}
 {
     joueurFacile *j1=new joueurFacile{position p{d_tailleTerrain/2, d_tailleTerrain/2}};
     d_vectEntite.push_back(j1);
@@ -16,7 +17,7 @@ d_typePartie{'F'},d_vectEntite{} {},d_score{0}
 
 jeu::jeu(int nbVieuxRobots, int nbNouveauxRobots, int tailleTerrain, char typePartie):
 d_nbVieuxRobots{nbVieuxRobots}, d_nbNouveauxRobots{nbNouveauxRobots},d_tailleTerrain{tailleTerrain}, d_typePartie{typePartie},
-d_vectEntite{},d_score{0}
+d_vectEntite{},d_score{0}, d_jeuTermine{false}
 {
     if(d_typePartie=='D')
     {
@@ -34,15 +35,38 @@ jeu::~jeu() {}
 
 void jeu::run(afficherJeu& affichage)
 {
-    while(jeuTermine==false)
+    while(d_jeuTermine==false)
     {
         jouerUnTour(affichage);
     }
 }
 
-void jeu::ajouterEntite(entite* entite1)
+
+
+void jeu::ajouterEntite(position& pos, int nomEntite)
 {
-    d_vectEntite.push_back(entite1);
+    if(nomEntite==DEBRIS)
+    {
+        obstacle *debris1=new obstacle{pos};
+        d_vectEntite.push_back(debris1);
+    }
+    else if(nomEntite==VIEUXROBOT)
+    {
+        vieuxRobot *vRob=new vieuxRobot{pos};
+        d_vectEntite.push_back(vRob);
+    }
+    else if(nomEntite==NOUVEAUROBOT)
+    {
+        nouveauRobot *nRob=new nouveauRobot{pos};
+        d_vectEntite.push_back(nRob);
+    }
+}
+
+void jeu::ajouterEntiteAleatoire(int nomEntite)
+{
+    std::srand(std::time(nullptr));
+    int varAleatoire=std::srand();
+
 }
 
 void jeu::creerDebris(position& pos)
@@ -88,7 +112,7 @@ void jeu::collision()
                         d_score+=NBPOINTMECHANT;
                 }
             }
-            creerDebris(d_vectEntite[i]->getPosition());
+            ajouterEntite(d_vectEntite[i]->getPosition(),DEBRIS);
             supprimerEntite(d_vectEntite[i]);
             d_score+=NBPOINTMECHANT;
         }

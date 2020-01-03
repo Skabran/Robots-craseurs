@@ -1,6 +1,8 @@
 #include "afficherJeu.h"
 #include "jeu.h"
 #include <iostream>
+#include "graphics.h"
+#include <windows.h>
 
 using std::cout;
 using std::cin;
