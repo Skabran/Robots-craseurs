@@ -3,14 +3,39 @@
 #include<string>
 #include "obstacle.h"
 #include "position.h"
+#include "joueurFacile.h"
+#include "joueurDifficile.h"
 
-jeu::jeu():d_vectEntite{} {}
+jeu::jeu():
+    d_nbVieuxRobots{3}, d_nbNouveauxRobots{1},d_tailleTerrain{200},
+    d_typePartie{'F'},d_vectEntite{} {}
+
+jeu::jeu(int nbVieuxRobots, int nbNouveauxRobots, int tailleTerrain, char typePartie):
+d_nbVieuxRobots{nbVieuxRobots}, d_nbNouveauxRobots{nbNouveauxRobots},d_tailleTerrain{tailleTerrain}, d_typePartie{typePartie},
+d_vectEntite{}
+{
+    if(d_typePartie=='D')
+    {
+        joueurDifficile *j1=new joueurDifficile{position p{d_tailleTerrain/2, d_tailleTerrain/2}};
+        d_vectEntite.push_back(j1)
+    }
+    else
+    {
+        joueurFacile *j1=new joueurFacile{position p{d_tailleTerrain/2, d_tailleTerrain/2}};
+        d_vectEntite.push_back(j1)
+    }
+}
 
 jeu::~jeu() {}
 
-void jeu::ajouterEntite(entite& entite1)
+void jeu::run()
 {
-    d_vectEntite.push_back(&entite1);
+
+}
+
+void jeu::ajouterEntite(entite* entite1)
+{
+    d_vectEntite.push_back(entite1);
 }
 
 void jeu::creerDebris(position& pos)
@@ -26,6 +51,15 @@ void jeu::supprimerEntite(entite* entite1)
     d_vectEntite.pop_back();
 }
 
+void jeu::jouerUnTour()
+{
+    for(int i=0; i<d_vectEntite.size();i++)
+    {
+        d_vectEntite[i]->deplacePerso();
+    }
+    collision();
+}
+
 void jeu::collision()
 {
     if(!d_vectEntite.empty())
@@ -38,7 +72,7 @@ void jeu::collision()
                 {
                     if(d_vectEntite[i]->getNom()[1]=='J'||d_vectEntite[j]->getNom()[1]=='J') //si joueur entre en collision Game Over
                     {
-                        finDePartie();
+                        finDePartie(true);
                     }
                     else
                         supprimerEntite(d_vectEntite[j]);
@@ -50,6 +84,13 @@ void jeu::collision()
     }
 }
 
+void jeu::finDePartie(bool jeuTermine=false)
+{
+    if(jeuTermine)
+    {
+
+    }
+}
 
 
 

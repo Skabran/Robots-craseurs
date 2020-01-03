@@ -10,3 +10,8 @@ std::string obstacle::getNom() const
 {
     return d_nom;
 }
+
+void obstacle::deplacePerso()
+{
+
+}

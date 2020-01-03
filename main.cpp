@@ -1,7 +1,11 @@
 #include <iostream>
+#include "jeu.h"
+#include "afficherJeu.h"
 
 int main()
 {
-    std::cout << "Bonjour a tous" << std::endl;
+    int nbVieuxRobots;
+    int nbNouveauRobots;
+    void afficheMenu();
     return 0;
 }

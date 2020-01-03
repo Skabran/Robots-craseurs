@@ -7,6 +7,7 @@ class obstacle:public entite
 public:
     obstacle(position& pos);
     std::string getNom() const;
+    void deplacePerso() override final;
 };
 
 #endif // OBSTACLE_H

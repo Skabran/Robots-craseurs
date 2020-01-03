@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="JoueurFacile.h" />
+		<Unit filename="afficherJeu.cpp" />
 		<Unit filename="afficherJeu.h" />
 		<Unit filename="entite.cpp" />
 		<Unit filename="entite.h" />
