@@ -66,7 +66,8 @@ void jeu::ajouterEntiteAleatoire(int nomEntite)
 {
     std::srand(std::time(nullptr));
     int varAleatoire=std::srand();
-
+    position pos(varAleatoire%d_tailleTerrain, varAleatoire%d_tailleTerrain);
+    ajouterEntite(pos,nomEntite);
 }
 
 void jeu::creerDebris(position& pos)
