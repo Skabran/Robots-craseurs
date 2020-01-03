@@ -11,8 +11,11 @@ public:
     ~jeu();
     void run();
     void ajouterEntite(entite& entite1);
-    void supprimerEntite(position& posASupprimer);
+    void creerDebris(position& pos);
+    void supprimerEntite(entite* entite1);
     void jouerUnTour();
+    void collision();
+    void finDePartie();
 private:
     std::vector<entite *> d_vectEntite;
 };
