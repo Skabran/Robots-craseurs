@@ -3,14 +3,14 @@
 
 position::position(): d_x{0.0}, d_y{0.0} {}
 
-position::position(double x, double y): d_x{x}, d_y{y} {}
+position::position(int x, int y): d_x{x}, d_y{y} {}
 
-double position::valeurX() const
+int position::valeurX() const
 {
     return d_x;
 }
 
-double position::valeurY() const
+int position::valeurY() const
 {
     return d_y;
 }
@@ -26,7 +26,7 @@ void position::lit(std::istream& ist)
     ist>>temp>>d_x>>temp>>d_y>>temp;
 }
 
-void position::changePosition(double x, double y)
+void position::changePosition(int x, int y)
 {
     d_x=x;
     d_y=y;
