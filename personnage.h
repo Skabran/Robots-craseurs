@@ -10,7 +10,7 @@ public:
     personnage(position& pos);
     virtual ~personnage();
     std::string getNom() const;
-    virtual void deplacePerso()=0;
+
 
 };
 

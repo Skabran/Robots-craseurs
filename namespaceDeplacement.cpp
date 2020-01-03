@@ -4,22 +4,20 @@
 namespace deplacement
 {
 
-void deplacementCroix(position& pos)
+void deplacementCroix(position& pos, char c)
 {
-    char c;
-    std::cin>>c;
     switch(c)
     {
-    case 'z':
+    case HAUT:
         deplaceHaut(pos);
         break;
-    case 'q':
+    case GAUCHE:
         deplaceGauche(pos);
         break;
-    case 's' :
+    case BAS :
         deplaceBas(pos);
         break;
-    case 'd' :
+    case DROITE :
         deplaceDroite(pos);
         break;
     default :
@@ -28,34 +26,32 @@ void deplacementCroix(position& pos)
 
 }
 
-void deplacementDiagonale(position& pos)
+void deplacementDiagonale(position& pos,char c)
 {
-    char c;
-    std::cin>>c;
     switch(c)
     {
-    case 'z':
+    case HAUT:
         deplaceHaut(pos);
         break;
-    case 'q':
+    case GAUCHE:
         deplaceGauche(pos);
         break;
-    case 's' :
+    case BAS :
         deplaceBas(pos);
         break;
-    case 'd' :
+    case DROITE :
         deplaceDroite(pos);
         break;
-    case 'a' :
+    case HAUTGAUCHE :
         deplaceHautGauche(pos);
         break;
-    case 'e' :
+    case HAUTDROITE :
         deplaceHautDroite(pos);
         break;
-    case 'w' :
+    case BASGAUCHE :
         deplaceBasGauche(pos);
         break;
-    case 'c' :
+    case BASDROITE :
         deplaceBasDroite(pos);
         break;
     default :
@@ -65,7 +61,7 @@ void deplacementDiagonale(position& pos)
 
 void deplaceHaut(position& pos)
 {
-    pos.changePosition(pos.valeurX(), pos.valeurY()+1);
+    pos.changePosition(pos.valeurX(), pos.valeurY()-1);
 }
 
 void deplaceGauche(position& pos)
@@ -75,7 +71,7 @@ void deplaceGauche(position& pos)
 
 void deplaceBas(position& pos)
 {
-    pos.changePosition(pos.valeurX(), pos.valeurY()-1);
+    pos.changePosition(pos.valeurX(), pos.valeurY()+1);
 }
 
 void deplaceDroite(position& pos)
@@ -85,22 +81,22 @@ void deplaceDroite(position& pos)
 
 void deplaceHautGauche(position& pos)
 {
-    pos.changePosition(pos.valeurX()-1, pos.valeurY()+1);
+    pos.changePosition(pos.valeurX()-1, pos.valeurY()-1);
 }
 
 void deplaceBasGauche(position& pos)
 {
-    pos.changePosition(pos.valeurX()-1, pos.valeurY()-1);
+    pos.changePosition(pos.valeurX()-1, pos.valeurY()+1);
 }
 
 void deplaceBasDroite(position& pos)
 {
-    pos.changePosition(pos.valeurX()+1, pos.valeurY()-1);
+    pos.changePosition(pos.valeurX()+1, pos.valeurY()+1);
 }
 
 void deplaceHautDroite(position& pos)
 {
-    pos.changePosition(pos.valeurX()+1, pos.valeurY()+1);
+    pos.changePosition(pos.valeurX()+1, pos.valeurY()-1);
 }
 
 }

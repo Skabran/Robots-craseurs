@@ -1,6 +1,7 @@
 #include "joueurFacile.h"
 #include <string>
 #include "namespaceDeplacement.h"
+#include <iostream>
 
 joueurFacile::joueurFacile(position& pos): joueur{pos}
  {
@@ -11,7 +12,9 @@ joueurFacile::~joueurFacile(){}
 
 void joueurFacile::deplacePerso()
 {
-    deplacement::deplacementDiagonale(d_pos);
+    char c;
+    std::cin>>c;
+    deplacement::deplacementDiagonale(d_pos, c);
 }
 
 

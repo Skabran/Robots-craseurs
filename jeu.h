@@ -9,6 +9,7 @@ class jeu
 public:
     jeu();
     ~jeu();
+    void run();
     void ajouterEntite(entite& entite1);
     void supprimerEntite(position& posASupprimer);
     void jouerUnTour();

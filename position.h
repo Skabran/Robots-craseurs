@@ -12,6 +12,10 @@ public:
     void changePosition(double x, double y);
     void affiche(std::ostream& ost) const;
     void lit(std::istream& ist);
+    bool auDessus(const position& pos) const;
+    bool enDessous(const position& pos) const;
+    bool aGauche(const position& pos) const;
+    bool aDroite(const position& pos) const;
     bool operator==(const position& pos) const;
 
 

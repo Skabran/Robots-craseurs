@@ -11,6 +11,7 @@ public:
     virtual ~entite();
     position getPosition() const;
     std::string getNom() const;
+    virtual void deplacePerso()=0;
     void afficheEntite(std::ostream& ost) const;
     void litEntite(std::istream& ist);
 

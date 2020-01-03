@@ -32,6 +32,42 @@ void position::changePosition(double x, double y)
     d_y=y;
 }
 
+bool position::auDessus(const position& pos) const
+{
+    if(d_y<pos.valeurY())
+    {
+        return true;
+    }
+    return false;
+}
+
+bool position::enDessous(const position& pos) const
+{
+    if(d_y>pos.valeurY())
+    {
+        return true;
+    }
+    return false;
+}
+
+bool position::aGauche(const position& pos) const
+{
+    if(d_x<pos.valeurX())
+    {
+        return true;
+    }
+    return false;
+}
+
+bool position::aDroite(const position& pos) const
+{
+    if(d_x>pos.valeurX())
+    {
+        return true;
+    }
+    return false;
+}
+
 bool position::operator==(const position& pos) const
 {
     if(d_x==pos.valeurX() && d_y==pos.valeurY())  //problème car égalité de double ?

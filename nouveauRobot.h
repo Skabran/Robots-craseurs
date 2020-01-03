@@ -6,10 +6,11 @@
 class nouveauRobot : public robot
 {
 public:
-    nouveauRobot(position& pos);
+    nouveauRobot(position& pos, joueur& joueur1);
     virtual ~nouveauRobot();
     std::string getNom() const;
-    void deplacePerso() override final;
+    void deplacePerso(const joueur& joueur1) override final;
+    char deplacementAutomatique(const joueur& joueur1) const override final;
 
 };
 

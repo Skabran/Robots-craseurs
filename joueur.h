@@ -1,9 +1,11 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
-#include "personnage.h"
+#include "entite.h"
 #include <string>
 
-class joueur:public personnage
+class position;
+
+class joueur:public entite
 {
 public:
     joueur(position& pos);
