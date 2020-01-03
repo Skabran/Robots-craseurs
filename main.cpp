@@ -4,8 +4,7 @@
 
 int main()
 {
-    int nbVieuxRobots;
-    int nbNouveauRobots;
-    void afficheMenu();
+    afficherJeu affichage();
+    affichage.afficheMenu();
     return 0;
 }

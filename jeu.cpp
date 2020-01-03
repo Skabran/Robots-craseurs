@@ -32,9 +32,12 @@ d_vectEntite{},d_score{0}
 
 jeu::~jeu() {}
 
-void jeu::run()
+void jeu::run(afficherJeu& affichage)
 {
-
+    while(jeuTermine==false)
+    {
+        jouerUnTour(affichage);
+    }
 }
 
 void jeu::ajouterEntite(entite* entite1)
@@ -55,13 +58,15 @@ void jeu::supprimerEntite(entite* entite1)
     d_vectEntite.pop_back();
 }
 
-void jeu::jouerUnTour()
+void jeu::jouerUnTour(afficherJeu& affichage)
 {
     for(int i=0; i<d_vectEntite.size();i++)
     {
         d_vectEntite[i]->deplacePerso();
     }
     collision();
+    affichage.afficheTerrain();
+
 }
 
 void jeu::collision()
@@ -70,7 +75,7 @@ void jeu::collision()
     {
         for(int i=0; i<d_vectEntite.size()-1; i++)
         {
-            for(int j=1; j<d_vectEntite.size(); j++)
+            for(int j=i+1; j<d_vectEntite.size(); j++)
             {
                 while(d_vectEntite[i]->getPosition()==d_vectEntite[j]->getPosition()) //si la dernière case avait la même position avant remplacement
                 {
@@ -87,14 +92,6 @@ void jeu::collision()
             supprimerEntite(d_vectEntite[i]);
             d_score+=NBPOINTMECHANT;
         }
-    }
-}
-
-void jeu::finDePartie(bool jeuTermine=false)
-{
-    if(jeuTermine)
-    {
-
     }
 }
 

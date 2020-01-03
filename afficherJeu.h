@@ -4,12 +4,15 @@
 
 class afficherJeu
 {
+public:
     afficherJeu();
     afficherJeu(jeu& leJeu);
     void afficheMenu() const;
+    void afficheTerrain() const;
+    void afficheFinPartie() const;
 
 private:
-    jeu* d_poiteurJeu;
+    jeu* d_pointeurJeu;
 };
 
 #endif // AFFICHERJEU_H
